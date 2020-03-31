@@ -1,0 +1,26 @@
+[
+    {
+        "TerminalId": "333",
+        "Description": "Drzwi glowne"
+    },
+    {
+        "TerminalId": "444",
+        "Description": "Drzwi boczne"
+    },
+    {
+        "TerminalId": "555",
+        "Description": "Drzwi garaz"
+    },
+    {
+        "TerminalId": "666",
+        "Description": "Drzwi tylne"
+    },
+    {
+        "TerminalId": "372",
+        "Description": "Nowy dodany, warsztat"
+    },
+    {
+        "TerminalId": "551",
+        "Description": "zapasowe wyjscie"
+    }
+]
