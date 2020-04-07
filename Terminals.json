@@ -14,13 +14,5 @@
     {
         "TerminalId": "666",
         "Description": "Drzwi tylne"
-    },
-    {
-        "TerminalId": "372",
-        "Description": "Nowy dodany, warsztat"
-    },
-    {
-        "TerminalId": "551",
-        "Description": "zapasowe wyjscie"
     }
 ]

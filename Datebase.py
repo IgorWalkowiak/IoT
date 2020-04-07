@@ -24,6 +24,13 @@ def getUserWithCardId(cardId):
             if employee['CardId'] == str(cardId):
                 return User(employee['CardId'], employee['Name'])
 
+def getUserWithName(name):
+    with open(CARDS_JSON_FILE) as json_file:
+        EmployeeData = json.load(json_file)
+        for employee in EmployeeData:
+            if employee['Name'] == str(name):
+                return User(employee['CardId'], employee['Name'])
+
 def addNewUser(user):
     with open(CARDS_JSON_FILE) as json_file:
         employeeData = json.load(json_file)
@@ -74,10 +81,19 @@ def removeTerminalById(terminalId):
 
 def logDoorUsage(time, cardId, terminalId):
     with open('log.csv', mode='a+', newline='') as logFile:
-        logWriter = csv.writer(logFile, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
+        logWriter = csv.writer(logFile, delimiter=',', quotechar='"')
         logWriter.writerow([cardId, terminalId, time])
 
 def logForbiddenAttempt(time, cardId, terminalId):
     with open('errorLog.csv', mode='a+', newline='') as logFile:
-        logWriter = csv.writer(logFile, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
+        logWriter = csv.writer(logFile, delimiter=',', quotechar='"')
         logWriter.writerow([cardId, terminalId, time])
+
+def getUserHistory(user):
+    userHistory = []
+    with open('log.csv', newline='') as logfile:
+        logs = csv.reader(logfile, delimiter=',', quotechar='"')
+        for log in logs:
+            if log[0] == user.cardId:
+                userHistory.append((log[1],float(log[2])))
+    return userHistory
